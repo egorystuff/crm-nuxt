@@ -1,8 +1,8 @@
-<!-- 1.51.12 -->
+<!-- 2.06.25 -->
 
 <template>
   <NuxtLayout>
     <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    <NuxtPage />
   </NuxtLayout>
 </template>
