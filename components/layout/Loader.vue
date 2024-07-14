@@ -2,7 +2,7 @@
 
 <template>
   <div class="wrapper">
-    <img src="/loader.svg" alt="Loading..." />
+    <NuxtImg src="/loader.svg" alt="Loading..." width="150px" />
   </div>
 </template>
 

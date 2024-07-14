@@ -1,10 +1,28 @@
 <script setup lang="ts">
-console.log("layout");
+import { account } from "@/utils/appwrite";
+import { useAuthStore, useIsLoadingStore } from "@/store/auth.store";
+
+const isLoadingStore = useIsLoadingStore();
+const store = useAuthStore();
+const router = useRouter();
+
+onMounted(async () => {
+  try {
+    const user = await account.get();
+    if (user) store.set(user);
+  } catch (error) {
+    router.push("/login");
+  } finally {
+    isLoadingStore.set(false);
+  }
+});
 </script>
 
 <template>
-  <section class="grid">
-    <LayoutSidebar />
+  <LayoutLoader v-if="isLoadingStore.isLoading" />
+
+  <section v-else :class="{ grid: store.isAuth }">
+    <LayoutSidebar v-if="store.isAuth" />
     <div>
       <slot />
     </div>

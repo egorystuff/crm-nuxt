@@ -1,4 +1,4 @@
-import { APP_WRITE_ID } from "../.env";
+import { APP_WRITE_ID } from "@/app.constants";
 import { Account, Client, Storage, Databases } from "appwrite";
 
 export const client = new Client();

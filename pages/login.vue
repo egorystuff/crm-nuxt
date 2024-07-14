@@ -26,7 +26,7 @@ const router = useRouter();
 const login = async () => {
   isLoadingStore.set(true);
   // Create an email session with Appwrite
-  await account.createSession(emailRef.value, passwordRef.value);
+  await account.createEmailPasswordSession(emailRef.value, passwordRef.value);
 
   // Get the account details
   const response = await account.get();
@@ -46,7 +46,7 @@ const login = async () => {
   nameRef.value = "";
 
   // Redirect the user to the home page
-  await router.push({ name: "/" });
+  await router.push("/");
   isLoadingStore.set(false);
 };
 
