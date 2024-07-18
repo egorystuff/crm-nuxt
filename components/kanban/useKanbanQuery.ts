@@ -24,7 +24,7 @@ export function useKanbanQuery() {
             name: deal.name,
             price: deal.price,
             companyName: deal.customer?.name,
-            status: deal.status,
+            status: column.name,
           });
         }
       }

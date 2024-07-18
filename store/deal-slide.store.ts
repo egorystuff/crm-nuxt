@@ -15,7 +15,7 @@ export const useDealSlideStore = defineStore("deal-slide", {
       this.$patch({ card, isOpen: true });
     },
     toggle() {
-      this.isOpen = !this.isOpen;
+      this.$state.isOpen = !this.$state.isOpen;
     },
   },
 });
