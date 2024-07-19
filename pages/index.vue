@@ -10,7 +10,7 @@ import { useDealSlideStore } from "~/store/deal-slide.store";
 import { generateColumnStyle } from "~/components/kanban/generate-gradient";
 
 useHead({
-  title: "CRM System",
+  title: "Home | CRM System",
 });
 
 const dragCardRef = ref<ICard | null>(null);
