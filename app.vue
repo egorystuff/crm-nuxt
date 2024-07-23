@@ -1,4 +1,3 @@
-<!-- 4.39.15 -->
 <!-- update table from nuxt UI -->
 
 <template>

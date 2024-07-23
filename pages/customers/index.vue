@@ -23,7 +23,7 @@ const { data: customers, isLoading } = useQuery({
           <UiTableHead class="w-[200px]">Images</UiTableHead>
           <UiTableHead class="w-[300px]">Names</UiTableHead>
           <UiTableHead class="w-[200px]">Email</UiTableHead>
-          <UiTableHead>Where did you come from</UiTableHead>
+          <UiTableHead>Where did you come from?</UiTableHead>
         </UiTableRow>
       </UiTableHeader>
 

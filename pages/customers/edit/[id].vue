@@ -11,7 +11,7 @@ interface InputFileEvent extends Event {
 interface ICustomerFormState extends Pick<ICustomer, "avatar_url" | "email" | "name" | "from_source"> {}
 
 useSeoMeta({
-  title: `Редактирование компании`,
+  title: `Company edit | CRM System`,
 });
 
 const route = useRoute();
@@ -59,13 +59,18 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <div class="p-10">
-    <h1 class="font-bold text-2xl mb-10">Редактирование {{ (data as unknown as ICustomerFormState)?.name }}</h1>
+    <h1 class="font-bold text-2xl mb-10">Editing {{ (data as unknown as ICustomerFormState)?.name }}</h1>
 
     <form @submit="onSubmit" class="form">
-      <UiInput placeholder="Наименование" v-model="name" v-bind="nameAttrs" type="text" class="input" />
+      <UiInput placeholder="Name" v-model="name" v-bind="nameAttrs" type="text" class="input" />
 
       <UiInput placeholder="Email" v-model="email" v-bind="emailAttrs" type="text" class="input" />
-      <UiInput placeholder="Откуда пришел?" v-model="fromSource" v-bind="fromSourceAttrs" type="text" class="input" />
+      <UiInput
+        placeholder="Where did you come from?"
+        v-model="fromSource"
+        v-bind="fromSourceAttrs"
+        type="text"
+        class="input" />
 
       <img
         v-if="values.avatar_url || isUploadImagePending"
@@ -76,7 +81,7 @@ const onSubmit = handleSubmit((values) => {
         class="rounded-full my-4" />
       <div class="grid w-full max-w-sm items-center gap-1.5 input">
         <label>
-          <div class="text-sm mb-2">Логотип</div>
+          <div class="text-sm mb-2">Logo</div>
           <UiInput
             type="file"
             :onchange="(e:InputFileEvent) => e?.target?.files?.length && uploadImage(e.target.files[0])"
@@ -85,7 +90,7 @@ const onSubmit = handleSubmit((values) => {
       </div>
 
       <UiButton :disabled="isPending" variant="secondary" class="mt-3">
-        {{ isPending ? "Загрузка..." : "Сохранить" }}
+        {{ isPending ? "Loading..." : "Save" }}
       </UiButton>
     </form>
   </div>
